@@ -1,6 +1,8 @@
-function echo<T>(arg: T) : T {
-    return arg;
+class Generic<T> {
+    add: (x: T, y:T) => T;
 }
 
-let a = echo<number>(1); // El typeof es Number
-let b = echo<String>("Hola mundo"); // El typeof es String
+let myGeneric = new Generic<number>();
+
+console.log(myGeneric.add = function (x,y) {return x + y});
+console.log(myGeneric.add(3,4));

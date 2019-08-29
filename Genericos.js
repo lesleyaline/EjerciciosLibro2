@@ -1,5 +1,8 @@
-function echo(arg) {
-    return arg;
-}
-var a = echo(1); // El typeof es Number
-var b = echo("Hola mundo"); // El typeof es String
+var Generic = /** @class */ (function () {
+    function Generic() {
+    }
+    return Generic;
+}());
+var myGeneric = new Generic();
+console.log(myGeneric.add = function (x, y) { return x + y; });
+console.log(myGeneric.add(3, 4));
