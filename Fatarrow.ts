@@ -12,3 +12,9 @@ setTimeout(function() { console.log(person.age); },2000); // 2
 var growOld = person.growOld;
 // más adelante se llama
 growOld();
+
+let _self = this;
+something.each(function() {
+console.log(_self); // the lexically scoped value
+console.log(this); // the library passed value
+});
