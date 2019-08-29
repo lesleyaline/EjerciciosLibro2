@@ -1,7 +1,6 @@
-function validateEntity(e: Entity?) {
+let x =(a: number) => 0;
+let y = (b:number, s: string) => 0;
 
-}
-function processEntity(e: Entity?){
-    validateEntity(e);
-    let s = e!.name;
-}
+y = x; //ok 
+x = y; //error
+
