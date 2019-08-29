@@ -1,3 +1,4 @@
+var _this = this;
 setTimeout(function () {
-    console.log(this); //Elemento que llama a la funcion
+    console.log(_this); // Elemento que contiene esta función
 }, 2000);

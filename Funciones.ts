@@ -1,3 +1,3 @@
-setTimeout(function(){
-    console.log(this); //Elemento que llama a la funcion
+setTimeout(() => {
+    console.log(this);// Elemento que contiene esta función
 },2000);
