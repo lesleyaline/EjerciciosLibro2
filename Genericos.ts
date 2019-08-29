@@ -1,16 +1,15 @@
-//interfaz que asegura que el parametro tenga el metodo length
-interface withLength{
-    length: number;
+function copyFields<T extends U, U>(source: T, target: U) : U {
+    for(let id in source){
+        if(target[id] != undefined){
+            source[id] = target[id];
+        }else {
+            target[id] = source[id];
+        }
+    }
+    return target;
 }
-
-//El parametro hereda de la interfaz la cual fuerza al parametro tenga el metodo length
-function echo<T extends withLength> (arg: T): T{
-    console.log(arg.length);
-    return arg;
-}
- //Esto funcionará
- let a = echo("aaa");
- let t = echo({length:2,name:"aa"}); 
-
- //Esto no funcionará
- let b = echo(1);
+let a = {a: 1, b: 2, c: 3};
+let b = copyFields (a, {b: 10, c:20}); // Esto funcionará
+let c = copyFields (a, {Q: 20}); // Esto NO funcionará
+console.log(b); // 1, 10, 20
+console.log(c); // Lo devuelve si lo compilas a pesar de saber que está mal
