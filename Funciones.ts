@@ -1,16 +1,7 @@
-function padLeft(value: string, padding: string | number){
-    if(typeof padding === "number"){
-        return Array(padding + 1).join(" ") + value;
-    }
+function validateEntity(e: Entity?) {
 
-    if(typeof padding ==="string"){
-        return Array(padding.length + 1).join(" ")+ value;
-    }
-
-    throw new Error(`Expected String or number, got '${padding}'`);
 }
-
-console.log(padLeft("hello", "aaa")); //Ejemplo de funcion con texto -> funciona
-console.log(padLeft("hello", 5)); //Ejemplo de funcion con numero ->funciona
-console.log(padLeft("hello",true)); //Ejemplo de funcion con texto -> No funciona
-
+function processEntity(e: Entity?){
+    validateEntity(e);
+    let s = e!.name;
+}
