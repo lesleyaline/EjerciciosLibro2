@@ -1,11 +1,10 @@
 function Person(age) {
     this.age = age
-    // ejecutandola en el navegador el this es window
-    // ya que es quien hace la llamada
-    this.growOld = function() {
+    // aquí el this es el objeto y no quien hace la llamada
+    this.growOld = () => {
         this.age++;
     }
 }
 var person = new Person(1);
-setTimeout(person.growOld,1000); // debería incrementar 1 + 1 = 2
-setTimeout(function() { console.log(person.age); },2000); // Devuelve 1, debería ser 2
+setTimeout(person.growOld,1000);
+setTimeout(function() { console.log(person.age); },2000); // devuelve 2
