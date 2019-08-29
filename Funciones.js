@@ -1,4 +1,4 @@
-var x = function (a) { return 0; };
-var y = function (b, s) { return 0; };
-y = x; //ok 
-x = y; //error
+var x = function () { return ({ name: 'Alice' }); };
+var y = function () { return ({ name: 'Alice', location: 'Seattle' }); };
+x = y; //ok
+y = x; //error porque x ()nmo tiene la propiedad location

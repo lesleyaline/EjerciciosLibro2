@@ -1,6 +1,5 @@
-let x =(a: number) => 0;
-let y = (b:number, s: string) => 0;
+let x = () => ({name: 'Alice'});
+let y = () => ({name: 'Alice', location: 'Seattle'});
 
-y = x; //ok 
-x = y; //error
-
+x = y; //ok
+y = x; //error porque x ()nmo tiene la propiedad location
