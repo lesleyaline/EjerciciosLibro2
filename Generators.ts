@@ -1,10 +1,13 @@
-function* idMaker() {
-    let index = 0;
-    while (index < 3)
-        yield index++;
+function* generator(){
+    console.log('Execution started');
+    yield 0;
+    console.log('Execution resumed');
+    yield 1;
+    console.log('Execution resumed');
 }
-let gen = idMaker();    
-console.log(gen.next()); // { value: 0, done: false }
-console.log(gen.next()); // { value: 1, done: false }
-console.log(gen.next()); // { value: 2, done: false }
-console.log(gen.next()); // { value: undefined, done: true }
+var iterator = generator();
+console.log('Starting iteration'); // Esto se ejecutará antes que nada de dentro del método generator()
+console.log(iterator.next()); // { value: 0, done: false }
+console.log(iterator.next()); // { value: 1, done: false }
+console.log(iterator.next()); // { value: undefined, done: true }
+    
