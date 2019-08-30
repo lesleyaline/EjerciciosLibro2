@@ -26,24 +26,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 function generator() {
+    var bar;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                console.log('Execution started');
-                return [4 /*yield*/, 0];
+            case 0: return [4 /*yield*/, 'Console log'];
             case 1:
-                _a.sent();
-                console.log('Execution resumed');
+                bar = _a.sent();
+                console.log(bar);
                 return [4 /*yield*/, 1];
             case 2:
                 _a.sent();
-                console.log('Execution resumed');
                 return [2 /*return*/];
         }
     });
 }
 var iterator = generator();
-console.log('Starting iteration'); // Esto se ejecutará antes que nada de dentro del método generator()
-console.log(iterator.next()); // { value: 0, done: false }
-console.log(iterator.next()); // { value: 1, done: false }
-console.log(iterator.next()); // { value: undefined, done: true }
+var foo = iterator.next();
+console.log(foo.value);
+var nextThing = iterator.next('Un texto inyectado');
+console.log(nextThing);

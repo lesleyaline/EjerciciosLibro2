@@ -1,13 +1,13 @@
-function* generator(){
-    console.log('Execution started');
-    yield 0;
-    console.log('Execution resumed');
+function* generator() {
+    var bar = yield 'Console log';
+    console.log(bar); 
     yield 1;
-    console.log('Execution resumed');
-}
-var iterator = generator();
-console.log('Starting iteration'); // Esto se ejecutará antes que nada de dentro del método generator()
-console.log(iterator.next()); // { value: 0, done: false }
-console.log(iterator.next()); // { value: 1, done: false }
-console.log(iterator.next()); // { value: undefined, done: true }
+}.
+const iterator = generator();
+   
+const foo = iterator.next();
+console.log(foo.value); 
+
+const nextThing = iterator.next('Un texto inyectado'); 
+console.log(nextThing);
     
