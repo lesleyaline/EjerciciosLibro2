@@ -1,12 +1,12 @@
-Promise.reject(new Error('Something bad happened'))
+Promise.resolve(123)
     .then((res) => {
-        console.log(res); //not called
+        throw new Error('something bad happened')
         return 456;
     })
-    .catch((err) =>{
-        console.log(err.message); //something bad happened
-        return Promise.resolve(123);
+    .then((res) => {
+        console.log(res); //never called
+        return Promise.resolve(789);
     })
-    .then((res) =>{
-        console.log(res); //123
+    .catch((err) =>{
+        console.log(err.message);
     })
