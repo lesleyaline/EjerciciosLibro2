@@ -1,11 +1,20 @@
-class Something {
-    static instances = 0;
+class FooBase {
+    public x: number;
+    private y: number;
+    protected z: number;
+}
+
+var foo = new FooBase();
+foo.x; // OK
+foo.y; // ERROR : private
+foo.z; // ERROR : protected
+    
+class FooChild extends FooBase {
     constructor() {
-    // Acedemos directamente mediante el nombre de la clase
-        Something.instances++;
+        super();
+        this.x; // OK
+        this.y; // ERROR: private
+        this.z; // okay
     }
 }
-var s1 = new Something();
-var s2 = new Something();
-console.log(Something.instances); 
     

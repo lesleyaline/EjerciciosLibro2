@@ -1,11 +1,33 @@
-var Something = /** @class */ (function () {
-    function Something() {
-        // Acedemos directamente mediante el nombre de la clase
-        Something.instances++;
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var FooBase = /** @class */ (function () {
+    function FooBase() {
     }
-    Something.instances = 0;
-    return Something;
+    return FooBase;
 }());
-var s1 = new Something();
-var s2 = new Something();
-console.log(Something.instances);
+var foo = new FooBase();
+foo.x; // OK
+foo.y; // ERROR : private
+foo.z; // ERROR : protected
+var FooChild = /** @class */ (function (_super) {
+    __extends(FooChild, _super);
+    function FooChild() {
+        var _this = _super.call(this) || this;
+        _this.x; // OK
+        _this.y; // ERROR: private
+        _this.z; // okay
+        return _this;
+    }
+    return FooChild;
+}(FooBase));
