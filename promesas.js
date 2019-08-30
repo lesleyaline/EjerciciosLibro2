@@ -1,9 +1,9 @@
 var promise = new Promise(function (resolve, reject) {
-    resolve(123);
+    reject(new Error("Algo malo a pasado"));
 });
 promise.then(function (res) {
-    console.log('I get called:', res === 123); //Devuelve:true
+    //this is never called
 });
 promise["catch"](function (err) {
-    //nunca es utilizado
+    console.log('Tengo una llamada: ', err.message); //Tengo una llamada algo malo a pasado.
 });
