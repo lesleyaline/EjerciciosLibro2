@@ -1,7 +1,7 @@
 class Base {
-    log() { console.log('hello world'); }
+    // realizamos una función mediante el uso de fat arrow
+    log = () => { console.log('hello world'); }
 }
 class Child extends Base {
-    log() { super.log() };
+    logWorld() { this.log() };
 }
-    
