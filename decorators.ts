@@ -1,17 +1,15 @@
-function MethodDecorator(
-    target: Object, // The prototype of the class
-    propertyKey: string, // The name of the method
+function StaticMethodDecorator(
+    target: Function, // the function itself and not the prototype
+    propertyKey: string | symbol, // The name of the static method
     descriptor: TypedPropertyDescriptor<any>
     ) {
-    console.log("MethodDecorator called on: ", target, propertyKey, descriptor);
+    console.log("StaticMethodDecorator called on: ", target, propertyKey, descriptor);
 }
-class MethodDecoratorExample {
-    @MethodDecorator
-    method() {
+class StaticMethodDecoratorExample {
+    @StaticMethodDecorator
+    static staticMethod() {
     }
 }
-MethodDecorator called on: { method: [Function] } method { value: [Function],
-    writable: true,
-    enumerable: true,
-    configurable: true
+StaticMethodDecorator called on: function StaticMethodDecoratorExample() {
 }
+    
