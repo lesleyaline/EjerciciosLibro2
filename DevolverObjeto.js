@@ -1,4 +1,3 @@
-var foo = function () {
-    bar: 123;
-};
-console.log(foo);
+var foo = function () { return ({
+    bar: 123
+}); };
